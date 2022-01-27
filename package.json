@@ -1,0 +1,21 @@
+{
+  "name": "workshop-ddd-dolby-io-comms-gettingstarted",
+  "version": "1.0.0",
+  "description": "Dolby.io Developer Days Communications APIs Getting Started app",
+  "dependencies": {
+    "axios": "^0.22.0",
+    "dotenv": "^10.0.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "netlify dev",
+    "live": "netlify dev --live"
+  },
+  "author": "Dan Zeitman - Dolby.io",
+  "license": "See LICENSE in this repo",
+  
+  "devDependencies": {
+    "netlify-cli": "^8.13.2"
+  }
+}

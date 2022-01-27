@@ -1,0 +1,18 @@
+
+  /* drag and drop   */
+  .videocard {
+    border: 3px solid  rgb(255, 14, 215);
+    background-color: linear-gradient(to left, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.8));
+    border-radius: 20px;
+    padding: 5px;
+    cursor: move;
+    margin: 5px;;
+  }
+  
+  .videocard.over {
+    border: 3px dotted rgb(255, 14, 215);
+  }
+  
+  [draggable] {
+    user-select: none;
+  }
