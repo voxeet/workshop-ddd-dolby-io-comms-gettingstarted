@@ -13,9 +13,6 @@
     "live": "netlify dev --live"
   },
   "author": "Dan Zeitman - Dolby.io",
-  "license": "See LICENSE in this repo",
+  "license": "See LICENSE in this repo"
   
-  "devDependencies": {
-    "netlify-cli": "^8.13.2"
-  }
 }
