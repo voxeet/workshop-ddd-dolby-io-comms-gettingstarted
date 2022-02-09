@@ -1,7 +1,7 @@
 # Dolby.io Developer Days Communications APIs Getting Started Application
 
   ![Auth Dialog](www/assets/img/dolby-io-discovery-days-illustration.png)
-## About this Workshop and Application
+## About this Workshop and Application (v1.2)
  
 This example is targeted for rapid deployment with Netlify. The example contains a front-end application and a serverless function to authenticate with the Dolby.io API.  
 
