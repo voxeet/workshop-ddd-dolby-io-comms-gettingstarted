@@ -69,10 +69,10 @@ padding-top: 4em;
   background: #6a11cb;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  background: -webkit-linear-gradient(to right, #6429CC, #3236CB);
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  background: linear-gradient(to right, #6429CC, #3236CB)
 }
 
 .gradient-custom-reverse {
@@ -80,25 +80,72 @@ padding-top: 4em;
   background: #6a11cb;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to left, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  background: -webkit-linear-gradient(to left, #6429CC, #3236CB);
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to left, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  background: linear-gradient(to left, #6429CC, #3236CB)
 }
 
 .gradient-custom-bg {
   /* fallback for old browsers */
-  background:  #740ee0;
+  background:  #252998;
 
   /* Chrome 10-25, Safari 5.1-6 */
   background-image: url('../../assets/img/dolby-io-discovery-days-illustration.png');
-  background: -webkit-linear-gradient(to left, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.8));
+  background: -webkit-linear-gradient(to left, #252998, rgba(37, 117, 252, 0.8));
   
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-image: url('../../assets/img/dolby-io-discovery-days-illustration.png');
-  background: linear-gradient(to left, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.8), url('../../assets/img/dolby-io-discovery-days-illustration.png'));
+  background: linear-gradient(to left, #252998, rgba(37, 117, 252, 0.8), url('../../assets/img/dolby-io-discovery-days-illustration.png'));
   background-size: 60%;
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: 100px;
+}
+
+/* Snackbar CSS borrowed from https://www.w3schools.com/howto/howto_js_snackbar.asp */
+
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 800px; /* Set a default minimum width */
+  margin-left: -400px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 70px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 1s, fadeout 1s 5s;
+  animation: fadein 1s, fadeout 1s 5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 70px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 70px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 70px; opacity: 1;}
+  to {bottom: 30; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 70px; opacity: 1;}
+  to {bottom: 30; opacity: 0;}
 }

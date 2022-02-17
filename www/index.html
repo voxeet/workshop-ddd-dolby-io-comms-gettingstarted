@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <!-- our styles -->
-    <link rel="stylesheet" href="assets/css/styles.css"> 
+    <!-- our styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
 
     <!-- Dolby.io SDK and Application specific code -->
@@ -33,13 +33,13 @@
 <body class="gradient-custom-bg">
     <!-- Begin UI -->
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient-custom">
-        <div class="container"><a class="navbar-brand logo" href="#">Dolby.io Developer Days Workshop - Basic Video Conference</a><button
-                data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span
+        <div class="container"><a class="navbar-brand logo" href="#" font-family = "Avenir Next" font-weight = "bold">Dolby.io Developer Days Workshop - Basic Video
+                Conference</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span
                     class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <div class="spacer"></div>
-                    <li id="nav-settings" class="nav-item">
+                    <li id="nav-settings" class="nav-item d-none">
                         <a class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" href="#mediaSettingsPanel"
                             role="button" aria-controls="mediaSettingsPanel">
                             <div class="text-sm-center">
@@ -53,7 +53,7 @@
                         </a>
                     </li>
 
-                    <li id="participants-settings" class="nav-item">
+                    <li id="participants-settings" class="nav-item d-none">
                         <a class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" href="#participantsPanel"
                             role="button" aria-controls="participantsPanel">
                             <div class="text-sm-center">
@@ -78,156 +78,163 @@
 
     <main class="page landing-page">
         <section class="video-block container-sm m-0">
-        <!-- <div class="container"> -->
-        <div id="app">
-            <div class="row align-items-start">
-                <!-- Left Col -->
-                <div class="col col-sm-3">
-                    <div class="card text-sm-center" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title" id="name-message"></h5>
-                            <!-- Conference Alias -->
-                            <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text" id="inputGroup-sizing-sm">Your Name</span>
-                                <input id="name-input" value="Anonymous" type="text" class="form-control"
-                                    aria-label="Name" aria-describedby="inputGroup-sizing-sm" />
+            <!-- <div class="container"> -->
+            <div id="app">
+                <div class="row align-items-start">
+                    <!-- Left Col -->
+                    <div class="col col-sm-3">
+                        <div class="card text-sm-center" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title" id="name-message"></h5>
+                                <!-- Conference Alias -->
+                                <div class="input-group input-group-sm mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Your Name</span>
+                                    <input id="name-input" value="Anonymous" type="text" class="form-control"
+                                        aria-label="Name" aria-describedby="inputGroup-sizing-sm" />
+                                </div>
+                                <!-- Conference Alias -->
+                                <div class="input-group input-group-sm mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Conference Alias</span>
+                                    <input id="alias-input" value="dev-portal" type="text" class="form-control"
+                                        aria-label="Conference Alias" aria-describedby="inputGroup-sizing-sm" />
+                                </div>
+                                <!--  Dolby Voice -->
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="dolby-voice-btn"
+                                        checked>
+                                    <label id="label-dolby-voice" class="form-check-label text-sm-center text-info"
+                                        for="dolby-voice-btn">Dolby
+                                        Voice On</label>
+                                </div>
+                                <!-- Join or Leave a Conference -->
+
+                                <div class="btn-toolbar p-2  gap-2 text-center">
+                                    <button id="join-btn" class="btn btn-primary btn-sm" type="button">Join</button>
+                                    <button id="leave-btn" class="btn btn-info btn-sm d-none"
+                                        type="button">Leave</button>
+                                </div>
+                                <!-- Controls -->
+                                <!-- Actions on Video and Screen Share -->
+                                <div id="actions">
+                                    <div class="btn-toolbar p-2  gap-2 text-center">
+                                        <button id="start-video-btn" class="btn btn-primary btn-sm d-none"
+                                            type="button">Start
+                                            video</button>
+                                        <button id="stop-video-btn" class="btn btn-info btn-sm d-none"
+                                            type="button">Stop
+                                            video</button>
+                                        <button id="start-audio-btn" class="btn btn-primary btn-sm d-none"
+                                            type="button">Start
+                                            audio</button>
+                                        <button id="stop-audio-btn" class="btn btn-info btn-sm d-none"
+                                            type="button">Stop
+                                            audio</button>
+                                    </div>
+                                    <div class="btn-toolbar p-2  gap-2 text-center">
+                                        <button id="start-screenshare-btn" class="btn btn-primary btn-sm d-none"
+                                            type="button">Start screen share</button>
+                                        <button id="stop-screenshare-btn" class="btn btn-info btn-sm d-none"
+                                            type="button">Stop
+                                            screen share</button>
+                                        <button id="start-recording-btn" class="btn btn-primary btn-sm d-none"
+                                            type="button">Start
+                                            recording</button>
+                                        <button id="stop-recording-btn" class="btn btn-info btn-sm d-none"
+                                            type="button">Stop
+                                            recording</button>
+                                    </div>
+                                    <p id="record-status" class="text-sm-center text-info" style="color: red;"></p>
+
+                                </div>
+
                             </div>
-                            <!-- Conference Alias -->
-                            <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text" id="inputGroup-sizing-sm">Conference Alias</span>
-                                <input id="alias-input" value="dev-portal" type="text" class="form-control"
-                                    aria-label="Conference Alias" aria-describedby="inputGroup-sizing-sm" />
-                            </div>
-                            <!--  Dolby Voice -->
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="dolby-voice-btn" checked>
-                                <label id="label-dolby-voice" class="form-check-label text-sm-center text-info" for="dolby-voice-btn">Dolby
-                                    Voice On</label>
-                            </div>
-                            <!-- Join or Leave a Conference -->
-                            <div role="group" class="btn-group btn-group-sm">
-                                <button id="join-btn" class="btn btn-success btn-sm" type="button">Join</button>
-                                <button id="leave-btn" class="btn btn-primary btn-sm" type="button">Leave</button>
-                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- Right Col -->
+                    <div class="col col-sm-12 col-lg-9">
+                        <!-- Container for the Screen Share -->
+                        <div id="screenshare-container"></div>
+                        <!-- Container for the video streams -->
+                        <div id="video-container" class="card-group row"></div>
+                    </div>
+
+                </div>
+
+                <!-- Particpants Panel -->
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="participantsPanel"
+                    aria-labelledby="participantsPanelLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="participantsPanelLabel">Participants</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <!-- Dynamic List of Particpants -->
+                        <ul id="participants-list" class="list-group list-group-flush"></ul>
+                    </div>
+                </div>
+
+                <!-- Media settings panel -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="mediaSettingsPanel"
+                    aria-labelledby="mediaSettingsPanelLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="mediaSettingsPanelLabel">Media Device Settings</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div>
+                            Select Media Devices
+                        </div>
+                        <!-- Video Devices -->
+                        <div class="media-devices-video-input input-group mb-3">
+                            <label class="input-group-text" for="video-devices">Camera</label>
+                            <select id="video-devices" class="form-select">
+                            </select>
+                            <button id="set-video-device-btn" type="button" disabled>Set</button>
                         </div>
 
-                        <!-- Controls -->
-            <!-- Actions on Video and Screen Share -->
-            <div id="actions">
-                <div role="group" class="btn-group btn-group-sm mb-1">
-                    <button id="start-video-btn" class="btn btn-primary btn-sm" type="button" disabled>Start
-                        video</button>
-                    <button id="stop-video-btn" class="btn btn-primary btn-sm" type="button" disabled>Stop
-                        video</button>
-                </div>
-                <div role="group" class="btn-group btn-group-sm mb-1">
-                    <button id="start-audio-btn" class="btn btn-primary btn-sm" type="button" disabled>Start
-                        audio</button>
-                    <button id="stop-audio-btn" class="btn btn-primary btn-sm" type="button" disabled>Stop
-                        audio</button>
-                </div>
+                        <!-- Audio input Devices -->
+                        <div class="media-devices-audio-input input-group mb-3">
+                            <label class="input-group-text" for="input-audio-devices">Microphone/Aux Input</label>
+                            <select id="input-audio-devices" class="form-select">
+                            </select>
+                            <button id="set-input-audio-device-btn" type="button" disabled>Set</button>
+                        </div>
 
 
-                <div role="group" class="btn-group btn-group-sm mb-1">
-                    <button id="start-screenshare-btn" class="btn btn-primary" type="button"
-                        disabled>Start screen share</button>
-                    <button id="stop-screenshare-btn" class="btn btn-primary" type="button"
-                        disabled>Stop screen share</button>
-                </div>
+                        <!-- Audio Output Devices -->
+                        <div class="media-devices-audio-output input-group mb-3">
+                            <label class="input-group-text" for="output-audio-devices">Speaker/Aux Output</label>
+                            <select id="output-audio-devices" class="form-select">
+                            </select>
+                            <button id="set-output-audio-device-btn" type="button" disabled>Set</button>
+                        </div>
 
-            </div>
-            <!-- Recording Actions and Status -->
-            <div id="recording" role="group" class="btn-group btn-group-sm mb-1">
-                <button id="start-recording-btn" class="btn btn-primary" type="button" disabled>Start
-                    recording</button>
-                <button id="stop-recording-btn" class="btn btn-primary" type="button" disabled>Stop
-                    recording</button>
-            </div>
-            <p id="record-status" class="text-sm-center text-info" style="color: red;"></p>
+                        <button id="refresh-devices-btn" class="btn btn-info btn-sm"  type="button">refresh</button>
 
                     </div>
                 </div>
-                <!-- Right Col -->
-                <div class="col col-sm-12 col-lg-9">
-                     <!-- Container for the Screen Share -->
-                     <div id="screenshare-container"></div>
-                    <!-- Container for the video streams -->
-                    <div id="video-container" class="card-group row"></div>
-                   
-                </div>
-
             </div>
 
-            <!-- Particpants Panel -->
-
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="participantsPanel"
-                aria-labelledby="participantsPanelLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="participantsPanelLabel">Participants</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <!-- Dynamic List of Particpants -->
-                    <ul id="participants-list" class="list-group list-group-flush"></ul>
-                </div>
-            </div>
-
-            <!-- Media settings panel -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="mediaSettingsPanel"
-                aria-labelledby="mediaSettingsPanelLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="mediaSettingsPanelLabel">Media Device Settings</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div>
-                        Select Media Devices
-                    </div>
-                    <!-- Video Devices -->
-                    <div class="media-devices-video-input input-group mb-3">
-                        <label class="input-group-text" for="video-devices">Camera</label>
-                        <select id="video-devices" class="form-select">
-                        </select>
-                        <button id="set-video-device-btn" type="button" disabled>Set</button>
-                    </div>
-
-                    <!-- Audio input Devices -->
-                    <div class="media-devices-audio-input input-group mb-3">
-                        <label class="input-group-text" for="input-audio-devices">Microphone/Aux Input</label>
-                        <select id="input-audio-devices" class="form-select">
-                        </select>
-                        <button id="set-input-audio-device-btn" type="button" disabled>Set</button>
-                    </div>
-
-
-                    <!-- Audio Output Devices -->
-                    <div class="media-devices-audio-output input-group mb-3">
-                        <label class="input-group-text" for="output-audio-devices">Speaker/Aux Output</label>
-                        <select id="output-audio-devices" class="form-select">
-                        </select>
-                        <button id="set-output-audio-device-btn" type="button" disabled>Set</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- </div> -->
+            <div id="snackbar">`You're video device has been set to: ............</div>
         </section>
     </main>
 
-
     <footer class="page-footer fixed-bottom gradient-custom-reverse py-3 ">
         <div class="container text-sm-center navbar">
-            <a class="text-info text-decoration-none" href="https://dashboard.dolby.io"
-                target="_blank">Dolby.io
+            <a class="text-info text-decoration-none" href="https://dashboard.dolby.io" target="_blank">Dolby.io
                 Dashboard</a>
             <a class="text-info text-decoration-none"
-                href="https://github.com/dolbyio-samples/workshop-ddd-dolby-io-comms-gettingstarted" target="_blank">View Code
+                href="https://github.com/dolbyio-samples/workshop-ddd-dolby-io-comms-gettingstarted"
+                target="_blank">View Code
                 on GitHub</a>
-            <a class="text-info text-decoration-none"
+            <a class="text-info text-decoration-none" font-weight ="bold"
                 href="https://app.netlify.com/start/deploy?repository=https://github.com/dolbyio-samples/workshop-ddd-dolby-io-comms-gettingstarted"
                 target="_blank">
                 Clone Project and Deploy on Netlify
